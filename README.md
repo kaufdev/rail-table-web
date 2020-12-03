@@ -1,27 +1,23 @@
 # RailTableWeb
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
-
-## Development server
+## Developoing locally
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Testing docker locally
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To build image run 'docker build . -t rail-table-web:1.0'
+To run image (and us it as contaienr) run 'docker run -p 3000:80 rail-table-web:1.0'
+On localhost:3000 application will be waiting not only as angular app, but as dockerised nginx server with angular inside
 
-## Build
+## Deploying on heroku
+Heroku requires creation 'backdoor' to web server - heroku defines number of port, that's why it needs to have way to change it in web server. $PORT is defined in nginx.conf, and it's exposed in dockerfile in 'CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;''.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+To deploy docker image to heroku run 'heroku container:push web -a rail-table-web' from app direcotry. It read dockerfile, and based on it create image and push it to heroku.
 
-## Running unit tests
+To run image on heroku run 'heroku container:release web -a rail-table-web' from app dir. Then 'heroku open -a rail-table-web', and app from heroku should open.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Resources:
+1. https://dev.to/usmslm102/containerizing-angular-application-for-production-using-docker-3mhi 
+2. http://coding-karma.com/2018/10/14/docker-deployment-angular-5-application-to-heroku/
