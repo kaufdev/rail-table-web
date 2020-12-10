@@ -21,3 +21,4 @@ To run image on heroku run 'heroku container:release web -a rail-table-web' from
 ### Resources:
 1. https://dev.to/usmslm102/containerizing-angular-application-for-production-using-docker-3mhi 
 2. http://coding-karma.com/2018/10/14/docker-deployment-angular-5-application-to-heroku/
+3. https://blog.codecentric.de/en/2019/03/docker-angular-dockerize-app-easily/ -  nice way to create enviroment from backend_api
