@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@font-face {
+    font-family: Leckerli One;
+    src: url(assets/fonts/LeckerliOne-Regular.ttf) format('truetype');
+}
+
+.rail-table-icon {
+    font-family: Leckerli One;
+    font-size: 50px;;
+}
