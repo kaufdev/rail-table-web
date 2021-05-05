@@ -4,15 +4,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModuleModule } from './material-module/material-module.module';
+import { SearchPanelComponent } from './search-panel/search-panel.component';
+import { FormsModule } from '@angular/forms';
+import { TransferListComponent } from './transfer-list/transfer-list.component';
+import { TransferComponent } from './transfer/transfer.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchPanelComponent,
+    TransferListComponent,
+    TransferComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModuleModule
+    MaterialModuleModule,
+    FormsModule
   ],
   providers: [
   ],

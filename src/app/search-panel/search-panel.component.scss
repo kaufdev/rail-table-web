@@ -1,0 +1,13 @@
+.go-button {
+    height: 140px;
+    width: 140px;
+    font-size: 35px;
+}
+
+.inherited-padding{
+    padding: inherit;
+}
+
+.height-as-floating-control{
+    height: calc(3.5rem + 2px);
+}

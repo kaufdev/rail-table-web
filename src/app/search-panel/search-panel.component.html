@@ -1,0 +1,26 @@
+<div style="background-color: gainsboro;" class="container-fluid">
+    <form (ngSubmit)="searchTransfer()" #searchForm="ngForm" class="row">
+        <div class="offset-2 col-4">
+            <div class="input-group my-4">
+                <span class="input-group-text">From:</span>
+                <input required name="stationFrom" [(ngModel)]="searchModelDto.stationFrom" type="text" class="form-control height-as-floating-control" id="fromStation" placeholder="Station">
+            </div>
+            <div class="input-group my-4">
+                <span class="input-group-text">To:</span>
+                <input required name="stationTo" [(ngModel)]="searchModelDto.stationTo" type="text" 
+                class="form-control height-as-floating-control" id="toStation" placeholder="Station">
+            </div>
+        </div> 
+        <div class="col-3">
+            <div class="form-floating mt-4">
+                <input required name="outboundDate" [(ngModel)]="searchModelDto.outboundDate" type="date" 
+                class="form-control" id="outboundDate" placeholder="Outbound date">
+                <label for="outboundDate">Outbound date</label>
+            </div>
+        </div>
+
+        <div class="col-2 my-4">
+            <button [disabled]="!searchForm.form.valid" class="btn btn-success go-button">GO!</button>
+        </div>
+    </form>
+</div>
