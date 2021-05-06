@@ -1,3 +1,8 @@
 <div class="container">
-    <rtw-transfer></rtw-transfer>
+    <rtw-transfer *ngFor="let transfer of transfers" 
+                [endStation]="transfer.endStation" [fromStation]="transfer.fromStation" 
+                [outboundTime]="transfer.outboundTime" [arrivalTime]="transfer.arrivalTime"
+                [operator]="transfer.operator" [firstClassPrice]="transfer.firstClassPrice"
+                [secondClassPrice]="transfer.secondClassPrice">
+            </rtw-transfer>
 </div>
