@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SearchModelDto } from '../model/search-dto.model';
 import { Transfer } from '../model/transfer.model';
+import { SharedService } from '../shared/shared.service';
 import { SearchPanelService } from './search-panel.service';
 
 @Component({
@@ -10,12 +11,11 @@ import { SearchPanelService } from './search-panel.service';
 })
 export class SearchPanelComponent{
     searchModelDto: SearchModelDto = new SearchModelDto();
-    transfers: Transfer[] = [];
 
-    constructor(private service: SearchPanelService) { }
+    constructor(private service: SearchPanelService, private sharedService: SharedService) { }
 
     searchTransfer(): void{
         this.service.searchTransfer(this.searchModelDto)
-            .subscribe(transfersFromServer => this.transfers = transfersFromServer);
+            .subscribe(transfersFromServer => this.sharedService.pushTransfers(transfersFromServer));
     }
 }
