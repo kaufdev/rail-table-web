@@ -7,7 +7,7 @@ interface StatusContainer {
 }
 
 @Component({
-  selector: 'app-root',
+  selector: 'rtw-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

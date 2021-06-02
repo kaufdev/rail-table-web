@@ -1,3 +1,4 @@
+
 export class SearchModelDto{
     stationFrom: string;
     stationTo: string;

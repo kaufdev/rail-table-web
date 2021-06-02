@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TransferComponent{
 
   @Input()
-  fromStation: string;
+  startStation: string;
 
   @Input()
   endStation: string;

@@ -3,7 +3,7 @@
         <div class="offset-2 col-4">
             <div class="input-group my-4">
                 <span class="input-group-text">From:</span>
-                <input required name="stationFrom" [(ngModel)]="searchModelDto.stationFrom" type="text" class="form-control height-as-floating-control" id="fromStation" placeholder="Station">
+                <input required name="stationFrom" [(ngModel)]="searchModelDto.stationFrom" type="text" class="form-control height-as-floating-control" id="startStation" placeholder="Station">
             </div>
             <div class="input-group my-4">
                 <span class="input-group-text">To:</span>
@@ -13,7 +13,7 @@
         </div> 
         <div class="col-3">
             <div class="form-floating mt-4">
-                <input required name="outboundDate" [(ngModel)]="searchModelDto.outboundDate" type="date" 
+                <input required name="outboundDate" [ngModel]="searchModelDto.outboundDate" (ngModelChange)="formatOutboundDate($event)" type="date" 
                 class="form-control" id="outboundDate" placeholder="Outbound date">
                 <label for="outboundDate">Outbound date</label>
             </div>
