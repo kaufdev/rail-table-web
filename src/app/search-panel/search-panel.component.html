@@ -1,10 +1,22 @@
 <div style="background-color: gainsboro;" class="container-fluid">
     <form (ngSubmit)="searchTransfer()" #searchForm="ngForm" class="row">
         <div class="offset-2 col-4">
-            <div class="input-group my-4">
-                <span class="input-group-text">From:</span>
-                <input required name="stationFrom" [(ngModel)]="searchModelDto.stationFrom" type="text" class="form-control height-as-floating-control" id="startStation" placeholder="Station">
+            <div class="station-form my-4">
+                <div class="input-group">
+                    <span class="input-group-text">From:</span>
+                    <input required name="stationFrom" 
+                    [ngModel]="searchModelDto.stationFrom"
+                    (ngModelChange)="setStationFrom($event)"
+                    type="text" class="form-control height-as-floating-control" 
+                        id="startStation" placeholder="Station">
+                </div>
+                <ul *ngIf="searchModelDto.stationFrom.length > 0" class="list-group station-list">
+                    <li class="list-group-item"  *ngFor="let station of stations">{{station.name}}</li>
+                </ul>
             </div>
+            
+            
+            
             <div class="input-group my-4">
                 <span class="input-group-text">To:</span>
                 <input required name="stationTo" [(ngModel)]="searchModelDto.stationTo" type="text" 

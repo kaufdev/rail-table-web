@@ -4,6 +4,7 @@ import { Transfer } from '../model/transfer.model';
 import { SharedService } from '../shared/shared.service';
 import { SearchPanelService } from './search-panel.service';
 import * as moment from 'moment';
+import { Station } from '../model/station-model';
 
 @Component({
     selector: 'rtw-search-panel',
@@ -11,6 +12,16 @@ import * as moment from 'moment';
     styleUrls: ['./search-panel.component.scss']
 })
 export class SearchPanelComponent{
+    stations: Station[] = [
+        new Station('Kraków Podgórze', 'Kraków', 'KRP'),
+        new Station('Kraków Główny', 'Kraków', 'KRG'),
+        new Station('Kraków Olsza', 'Kraków', 'KRO'),
+        new Station('Warszawa Centralna', 'Warszawa', 'WAC'),
+        new Station('Warszawa Główna', 'Warszawa', 'WAG'),
+        new Station('Warszawa Stadion', 'Warszawa', 'WAS'),
+        new Station('Gdańsk Główny', 'Gdańsk', 'GDS'),
+        new Station('Gdynia', 'Gdańsk', 'GDN')
+    ];
     searchModelDto: SearchModelDto = new SearchModelDto();
 
     constructor(private service: SearchPanelService, private sharedService: SharedService) { }

@@ -3,7 +3,7 @@ import { Station } from './station-model';
 export class Transfer{
     outboundTime: Date;
     arrivalTime: Date;
-    fromStation: Station;
+    startStation: Station;
     endStation: Station;
     operator: string;
     firstClassPrice: number;
