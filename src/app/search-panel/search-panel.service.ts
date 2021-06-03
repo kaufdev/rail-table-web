@@ -28,6 +28,11 @@ export class SearchPanelService{
     }
 
     searchStation(stationProposal: string): Observable<Station[]>{
-        return new BehaviorSubject<Station[]>(this.stations.filter(station => station.name.startsWith(stationProposal)));
+        const response: Station[] = this.stations.filter(station => {
+            const lowerCaseStationName: string = station.name.toLowerCase();
+            return lowerCaseStationName.startsWith(stationProposal.toLowerCase());
+        }
+            );
+        return new BehaviorSubject<Station[]>(response);
     }
 }

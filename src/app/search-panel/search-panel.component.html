@@ -5,13 +5,14 @@
                 <div class="input-group">
                     <span class="input-group-text">From:</span>
                     <input required name="stationFrom" 
-                    [ngModel]="searchModelDto.stationFrom"
-                    (ngModelChange)="setStationFrom($event)"
+                    [ngModel]="stationFromName"
+                    (ngModelChange)="searchFromStation($event)"
                     type="text" class="form-control height-as-floating-control" 
                         id="startStation" placeholder="Station">
                 </div>
-                <ul *ngIf="searchModelDto.stationFrom.length > 0" class="list-group station-list">
-                    <li class="list-group-item"  *ngFor="let station of stations">{{station.name}}</li>
+                <ul *ngIf="isStationFromDropdownVisible" class="list-group station-list">
+                    <li class="list-group-item"  (click)="setStationFromAcronym(station)" 
+                    *ngFor="let station of fromStations">{{station.name}}</li>
                 </ul>
             </div>
             

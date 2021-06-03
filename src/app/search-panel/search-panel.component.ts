@@ -12,16 +12,10 @@ import { Station } from '../model/station-model';
     styleUrls: ['./search-panel.component.scss']
 })
 export class SearchPanelComponent{
-    stations: Station[] = [
-        new Station('Kraków Podgórze', 'Kraków', 'KRP'),
-        new Station('Kraków Główny', 'Kraków', 'KRG'),
-        new Station('Kraków Olsza', 'Kraków', 'KRO'),
-        new Station('Warszawa Centralna', 'Warszawa', 'WAC'),
-        new Station('Warszawa Główna', 'Warszawa', 'WAG'),
-        new Station('Warszawa Stadion', 'Warszawa', 'WAS'),
-        new Station('Gdańsk Główny', 'Gdańsk', 'GDS'),
-        new Station('Gdynia', 'Gdańsk', 'GDN')
-    ];
+
+    isStationFromDropdownVisible: boolean;
+    stationFromName = '';
+    fromStations: Station[] = [];
     searchModelDto: SearchModelDto = new SearchModelDto();
 
     constructor(private service: SearchPanelService, private sharedService: SharedService) { }
@@ -33,5 +27,18 @@ export class SearchPanelComponent{
     searchTransfer(): void{
         this.service.searchTransfer(this.searchModelDto)
             .subscribe(transfersFromServer => this.sharedService.pushTransfers(transfersFromServer));
+    }
+
+    setStationFromAcronym(station: Station): void {
+        this.stationFromName = station.name;
+        this.searchModelDto.stationFrom = station.acronym;
+        this.isStationFromDropdownVisible = false;
+    }
+
+    searchFromStation(stationProposal: string): void {
+        this.isStationFromDropdownVisible = stationProposal.length > 0;
+        this.stationFromName = stationProposal;
+        this.service.searchStation(stationProposal)
+            .subscribe(stations => this.fromStations = stations);
     }
 }
