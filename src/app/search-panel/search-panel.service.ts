@@ -12,7 +12,7 @@ import { Transfer } from '../model/transfer.model';
 export class SearchPanelService{
     stations: Station[] = [
         new Station('Kraków Podgórze', 'Kraków', 'KRP'),
-        new Station('Kraków Główny', 'Kraków', 'KRG'),
+        new Station('Kraków Główny', 'Kraków', 'KRK'),
         new Station('Kraków Olsza', 'Kraków', 'KRO'),
         new Station('Warszawa Centralna', 'Warszawa', 'WAC'),
         new Station('Warszawa Główna', 'Warszawa', 'WAG'),

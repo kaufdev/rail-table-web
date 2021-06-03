@@ -8,12 +8,14 @@ import { SearchPanelComponent } from './search-panel/search-panel.component';
 import { FormsModule } from '@angular/forms';
 import { TransferListComponent } from './transfer-list/transfer-list.component';
 import { TransferComponent } from './transfer/transfer.component';
+import { StationFormComponent } from './station-from-input/station-form-input.component';
 @NgModule({
   declarations: [
     AppComponent,
     SearchPanelComponent,
     TransferListComponent,
     TransferComponent,
+    StationFormComponent
   ],
   imports: [
     BrowserModule,

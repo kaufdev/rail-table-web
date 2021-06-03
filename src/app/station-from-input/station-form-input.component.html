@@ -1,0 +1,11 @@
+<div class="station-form my-4">
+    <div class="input-group">
+        <span class="input-group-text">{{inputName}}:</span>
+        <input [ngModel]="stationName" (ngModelChange)="searchFromStation($event)" [disabled]="disabled"
+        type="text" class="form-control height-as-floating-control" placeholder="Station">
+    </div>
+    <ul *ngIf="isStationDropdownVisible && !disabled" class="list-group station-list">
+        <li class="list-group-item"  (click)="setStationFromAcronym(station)" 
+        *ngFor="let station of stations">{{station.name}}</li>
+    </ul>
+</div>

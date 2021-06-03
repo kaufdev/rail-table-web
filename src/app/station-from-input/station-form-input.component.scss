@@ -1,0 +1,17 @@
+.height-as-floating-control{
+    height: calc(3.5rem + 2px);
+}
+
+.station-form {
+    position: relative;
+}
+
+.station-list{
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+}
+
+li:hover{
+    background-color:#f5f2f2 ;
+}

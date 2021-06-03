@@ -1,21 +1,7 @@
 <div style="background-color: gainsboro;" class="container-fluid">
     <form (ngSubmit)="searchTransfer()" #searchForm="ngForm" class="row">
         <div class="offset-2 col-4">
-            <div class="station-form my-4">
-                <div class="input-group">
-                    <span class="input-group-text">From:</span>
-                    <input required name="stationFrom" 
-                    [ngModel]="stationFromName"
-                    (ngModelChange)="searchFromStation($event)"
-                    type="text" class="form-control height-as-floating-control" 
-                        id="startStation" placeholder="Station">
-                </div>
-                <ul *ngIf="isStationFromDropdownVisible" class="list-group station-list">
-                    <li class="list-group-item"  (click)="setStationFromAcronym(station)" 
-                    *ngFor="let station of fromStations">{{station.name}}</li>
-                </ul>
-            </div>
-            
+            <rtw-station-form-input [inputName]="'From'" name="stationFrom" required [(ngModel)]="searchModelDto.stationFrom"></rtw-station-form-input>
             
             
             <div class="input-group my-4">
