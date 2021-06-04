@@ -5,7 +5,7 @@
             <h2 class="text-center">{{startStation}}</h2>
         </div>
         
-        <div class="col-4">
+        <div class="col-4" (click)="isInterchangeVisible = !isInterchangeVisible">
             <hr>
             <p class="text-center">{{operator}}</p>
         </div>
@@ -31,4 +31,11 @@
             </button>
         </div>
     </div>
+</div>
+<div *ngIf="isInterchangeVisible">
+    <rtw-interchange-transfer *ngFor="let interchange of interchangeTransfers"
+    [endStation]="interchange?.endStation?.name" [startStation]="interchange?.startStation?.name" 
+    [outboundTime]="interchange.outboundTime" [arrivalTime]="interchange.arrivalTime"
+    [operator]="interchange.operator"
+    ></rtw-interchange-transfer>
 </div>

@@ -9,13 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { TransferListComponent } from './transfer-list/transfer-list.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { StationFormComponent } from './station-from-input/station-form-input.component';
+import { InterchangeTransferComponent } from './interchange-transfer/interchange-transfer.component';
 @NgModule({
   declarations: [
     AppComponent,
     SearchPanelComponent,
     TransferListComponent,
     TransferComponent,
-    StationFormComponent
+    StationFormComponent,
+    InterchangeTransferComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Transfer } from '../model/transfer.model';
 
 @Component({
   selector: 'rtw-transfer',
@@ -28,4 +29,8 @@ export class TransferComponent{
   @Input()
   secondClassPrice: number;
 
+  @Input()
+  interchangeTransfers: Transfer[];
+
+  isInterchangeVisible: boolean = false;
 }
