@@ -10,6 +10,7 @@ import { TransferListComponent } from './transfer-list/transfer-list.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { StationFormComponent } from './station-from-input/station-form-input.component';
 import { InterchangeTransferComponent } from './interchange-transfer/interchange-transfer.component';
+import {OrderTicketComponent} from "./order/order-ticket.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { InterchangeTransferComponent } from './interchange-transfer/interchange
     TransferListComponent,
     TransferComponent,
     StationFormComponent,
-    InterchangeTransferComponent
+    InterchangeTransferComponent,
+    OrderTicketComponent
   ],
   imports: [
     BrowserModule,

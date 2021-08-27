@@ -1,31 +1,31 @@
 <div style="height: 151px;"class="card  m-4">
     <div class="card-body row ms-1">
         <div class="col-2">
-            <h1 class="margin-5px text-center">{{outboundTime |  date:'hh:mm'}}</h1>
+            <h1 class="margin-5px text-center">{{outboundTime |  date:'HH:mm'}}</h1>
             <h2 class="text-center">{{startStation}}</h2>
         </div>
-        
+
         <div class="col-4" (click)="isInterchangeVisible = !isInterchangeVisible">
             <hr>
             <p class="text-center">{{operator}}</p>
         </div>
 
         <div class="col-2">
-            <h1 class="margin-5px text-center">{{arrivalTime |  date:'hh:mm'}}</h1>
+            <h1 class="margin-5px text-center">{{arrivalTime |  date:'HH:mm'}}</h1>
             <h2 class="text-center">{{endStation}}</h2>
         </div>
-        
+
         <div class="col-4">
             <button [disabled]=true class="btn btn-outline-secondary w-25 h-100 me-1">
                 <p>Student</p>
                 <p>{{secondClassPrice / 2}} zł</p>
             </button>
-            <button class="btn btn-warning w-25 h-100  me-1">
+            <button class="btn btn-warning w-25 h-100  me-1" (click)="orderNormalTicket()">
                 <p>Normal</p>
                 <p>{{secondClassPrice}} zł</p>
             </button>
 
-            <button [disabled]=true class="btn btn-outline-secondary w-25 h-100  me-1">
+            <button class="btn btn-outline-secondary w-25 h-100  me-1" (click)="orderFirstClassTicket()">
                 <p>1st Class</p>
                 <p>{{firstClassPrice}}zł</p>
             </button>
@@ -34,8 +34,10 @@
 </div>
 <div *ngIf="isInterchangeVisible">
     <rtw-interchange-transfer *ngFor="let interchange of interchangeTransfers"
-    [endStation]="interchange?.endStation?.name" [startStation]="interchange?.startStation?.name" 
+    [endStation]="interchange?.endStation?.name" [startStation]="interchange?.startStation?.name"
     [outboundTime]="interchange.outboundTime" [arrivalTime]="interchange.arrivalTime"
     [operator]="interchange.operator"
     ></rtw-interchange-transfer>
 </div>
+
+
