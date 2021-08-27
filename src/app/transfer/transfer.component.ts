@@ -1,8 +1,8 @@
 import {Component, Input} from '@angular/core';
-import {Transfer} from '../model/transfer.model';
 import {MatDialog} from "@angular/material/dialog";
 import {OrderTicketComponent} from "../order/order-ticket.component";
 import {Order} from "../order/order.model";
+import {InterchangeTransfer} from "../model/interchange-transfer.model";
 
 @Component({
   selector: 'rtw-transfer',
@@ -33,7 +33,10 @@ export class TransferComponent{
   secondClassPrice: number;
 
   @Input()
-  interchangeTransfers: Transfer[];
+  interchangeTransfers: InterchangeTransfer[];
+
+  @Input()
+  sectionsIds: string[];
 
   isInterchangeVisible: boolean = false;
 
@@ -42,12 +45,12 @@ export class TransferComponent{
   constructor(public dialog: MatDialog) {}
 
   orderNormalTicket() {
-    const order = new Order(null,this.startStation,this.endStation,this.outboundTime, this.arrivalTime,this.operator,this.secondClassPrice,"Second class");
+    const order = new Order(this.sectionsIds,this.startStation,this.endStation,this.outboundTime, this.arrivalTime,this.operator,this.secondClassPrice,"Second class");
     this.dialog.open(OrderTicketComponent,{data: order});
   }
 
   orderFirstClassTicket() {
-    const order = new Order(null,this.startStation,this.endStation,this.outboundTime, this.arrivalTime,this.operator,this.secondClassPrice, "First Class");
+    const order = new Order(this.sectionsIds,this.startStation,this.endStation,this.outboundTime, this.arrivalTime,this.operator,this.secondClassPrice, "First Class");
     this.dialog.open(OrderTicketComponent,{data: order});
   }
 }

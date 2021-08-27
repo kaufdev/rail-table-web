@@ -1,4 +1,3 @@
-import { InterchangeTransferComponent } from '../interchange-transfer/interchange-transfer.component';
 import { InterchangeTransfer } from './interchange-transfer.model';
 import { Station } from './station-model';
 
@@ -11,4 +10,5 @@ export class Transfer{
     firstClassPrice: number;
     secondClassPrice: number;
     interchangeTransfers: InterchangeTransfer[] = [];
+    sectionsIds: string[] = [];
 }
