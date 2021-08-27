@@ -12,6 +12,12 @@ import {InterchangeTransfer} from "../model/interchange-transfer.model";
 export class TransferComponent{
 
   @Input()
+  allSeats: string;
+
+  @Input()
+  takenSeats: string;
+
+  @Input()
   startStation: string;
 
   @Input()

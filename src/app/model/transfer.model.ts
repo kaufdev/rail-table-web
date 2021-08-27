@@ -11,4 +11,6 @@ export class Transfer{
     secondClassPrice: number;
     interchangeTransfers: InterchangeTransfer[] = [];
     sectionsIds: string[] = [];
+    allSeats: string;
+    takenSeats: string;
 }
