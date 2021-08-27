@@ -9,7 +9,7 @@ import { Transfer } from '../model/transfer.model';
 @Injectable({
     providedIn: 'root',
    })
-export class SearchPanelService{
+export class SearchPanelDataService {
     constructor(private http: HttpClient){}
 
     searchTransfer(dto: SearchModelDto): Observable<Transfer[]> {

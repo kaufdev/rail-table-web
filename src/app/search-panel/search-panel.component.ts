@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SearchModelDto } from '../model/search-dto.model';
 import { Transfer } from '../model/transfer.model';
 import { SharedService } from '../shared/shared.service';
-import { SearchPanelService } from './search-panel.service';
+import { SearchPanelDataService } from './search-panel-data.service';
 import * as moment from 'moment';
 import { Station } from '../model/station-model';
 
@@ -18,7 +18,7 @@ export class SearchPanelComponent{
     fromStations: Station[] = [];
     searchModelDto: SearchModelDto = new SearchModelDto();
 
-    constructor(private service: SearchPanelService, private sharedService: SharedService) { }
+    constructor(private service: SearchPanelDataService, private sharedService: SharedService) { }
 
     formatOutboundDate(event: any): void{
         this.searchModelDto.outboundDate = moment(event).format('yyyy-MM-DD HH:mm:ss');

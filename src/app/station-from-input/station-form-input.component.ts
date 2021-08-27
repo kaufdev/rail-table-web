@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Station } from '../model/station-model';
-import { SearchPanelService } from '../search-panel/search-panel.service';
+import { SearchPanelDataService } from '../search-panel/search-panel-data.service';
 import { SharedService } from '../shared/shared.service';
 
 @Component({
@@ -27,7 +27,7 @@ export class StationFormComponent implements ControlValueAccessor{
     onChange = (stationAcronym: string) => {};
     onTouch = () => {};
 
-    constructor(private service: SearchPanelService){
+    constructor(private service: SearchPanelDataService){
     }
 
     writeValue(value: string): void {
