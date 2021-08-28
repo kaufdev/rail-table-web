@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>Confirmed Ticket</h2>
+<mat-dialog-content class="mat-typography">
+
+  <section-row *ngFor="let transfer of ticket.transfers;let i=index;"
+               [position]="preparePostion(i)"
+               [arrivalStation]="transfer.arrivalStationName" [arrivalTime]="transfer.arrivalTime"
+               [outboundStation]="transfer.outboundStationName"
+               [outboundTime]="transfer.outboundTime"></section-row>
+
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="chosenClass">Chosen class</label>
+        <input type="text" class="form-control" id="chosenClass" [ngModel]="'DUPA'" [disabled]="true">
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName" [ngModel]="ticket.firstName" [disabled]="true">
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName" [ngModel]="ticket.lastName" [disabled]="true">
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" [ngModel]="ticket.email" [disabled]="true">
+      </div>
+    </div>
+  </div>
+  <h2 style="float: right; margin-top: 23px">{{ticket.price | currency: 'PLN' }}</h2>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Return</button>
+</mat-dialog-actions>

@@ -3,15 +3,15 @@
   <mat-dialog-content class="mat-typography">
 
     <ng-container *ngIf="order.interchanges.length == 0">
-      <order-section-row [position]="'1)'" [arrivalStation]="order.totalEndStation" [arrivalTime]="order.totalArrivalTime"
-        [outboundStation]="order.totalStartStation" [outboundTime]="order.totalOutboundTime"></order-section-row>
+      <section-row [position]="'1)'" [arrivalStation]="order.totalEndStation" [arrivalTime]="order.totalArrivalTime"
+                   [outboundStation]="order.totalStartStation" [outboundTime]="order.totalOutboundTime"></section-row>
     </ng-container>
 
     <ng-container *ngIf="order.interchanges.length > 0">
-      <order-section-row *ngFor="let interchange of order.interchanges;let i=index;"
-                         [position]="preparePostion(i)"
-                         [arrivalStation]="interchange.endStation" [arrivalTime]="interchange.arrivalTime"
-                         [outboundStation]="interchange.startStation" [outboundTime]="interchange.outboundTime"></order-section-row>
+      <section-row *ngFor="let interchange of order.interchanges;let i=index;"
+                   [position]="preparePostion(i)"
+                   [arrivalStation]="interchange.endStation" [arrivalTime]="interchange.arrivalTime"
+                   [outboundStation]="interchange.startStation" [outboundTime]="interchange.outboundTime"></section-row>
     </ng-container>
 
 
@@ -71,7 +71,7 @@
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button [mat-dialog-close]="true"[disabled]="!orderForm.form.valid" (click)="ordered()">
+    <button mat-button [mat-dialog-close]="true" [disabled]="!orderForm.form.valid" (click)="ordered()">
       Order
     </button>
   </mat-dialog-actions>

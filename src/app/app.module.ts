@@ -11,8 +11,8 @@ import { TransferComponent } from './transfer/transfer.component';
 import { StationFormComponent } from './station-from-input/station-form-input.component';
 import { InterchangeTransferComponent } from './interchange-transfer/interchange-transfer.component';
 import {OrderTicketComponent} from "./order/order-ticket.component";
-// import {TicketComponent} from "./ticket/ticket.component";
-import {OrderSectionRow} from "./order/order-section-row.component";
+import {SectionRow} from "./order/section-row.component";
+import {TicketComponent} from "./ticket/ticket.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,8 +22,8 @@ import {OrderSectionRow} from "./order/order-section-row.component";
     StationFormComponent,
     InterchangeTransferComponent,
     OrderTicketComponent,
-    // TicketComponennt,
-    OrderSectionRow
+    TicketComponent,
+    SectionRow
   ],
   imports: [
     BrowserModule,
