@@ -3,4 +3,5 @@ export class TicketTransferModel {
     readonly arrivalStationName: string;
     readonly outboundTime: Date;
     readonly arrivalTime: Date;
+    readonly operator: string;
 }

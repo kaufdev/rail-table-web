@@ -52,14 +52,23 @@ export class TransferComponent{
   constructor(public dialog: MatDialog) {}
 
   orderNormalTicket() {
-    const orderInterchanges = this.interchangeTransfers.map(interchange => new OrderInterchange(interchange.startStation,interchange.outboundTime,interchange.endStation,interchange.arrivalTime));
+    const orderInterchanges = this.interchangeTransfers.map(interchange =>
+      new OrderInterchange(interchange.startStation,
+        interchange.outboundTime,
+        interchange.endStation,
+        interchange.arrivalTime,
+        interchange.operator));
     const order = new Order(this.sectionsIds,this.startStation,this.endStation,this.outboundTime, this.arrivalTime,this.operator,this.secondClassPrice,"Second class",orderInterchanges);
     this.dialog.open(OrderTicketComponent,{data: order});
   }
 
   orderFirstClassTicket() {
-    const orderInterchanges: OrderInterchange[] = this.interchangeTransfers.map(interchange => new OrderInterchange(interchange.startStation,interchange.outboundTime,interchange.endStation,interchange.arrivalTime));
-    const order = new Order(this.sectionsIds,this.startStation,this.endStation,this.outboundTime, this.arrivalTime,this.operator,this.secondClassPrice, "First Class",orderInterchanges);
+    const orderInterchanges = this.interchangeTransfers.map(interchange =>
+      new OrderInterchange(interchange.startStation,
+        interchange.outboundTime,
+        interchange.endStation,
+        interchange.arrivalTime,
+        interchange.operator));    const order = new Order(this.sectionsIds,this.startStation,this.endStation,this.outboundTime, this.arrivalTime,this.operator,this.secondClassPrice, "First Class",orderInterchanges);
     this.dialog.open(OrderTicketComponent,{data: order});
   }
 }

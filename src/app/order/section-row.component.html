@@ -1,7 +1,15 @@
 <div class="row" >
-  <div class="col-1" >
+  <div class="col-1">
     <h4 style="text-align: center; margin-top: 28px">{{position}}</h4>
   </div>
+
+  <div class="col">
+    <div class="form-group">
+      <label for="operator">Operator</label>
+      <input type="text" class="form-control" id="operator" [ngModel]="operator" [disabled]="true">
+    </div>
+  </div>
+
   <div class="col">
     <div class="form-group">
       <label for="outboundStation">Outbound Station</label>

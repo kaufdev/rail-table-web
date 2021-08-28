@@ -1,15 +1,15 @@
-<h2 mat-dialog-title>{{order.operator}}</h2>
+<h2 mat-dialog-title>Order Ticket</h2>
 <form #orderForm="ngForm">
   <mat-dialog-content class="mat-typography">
 
     <ng-container *ngIf="order.interchanges.length == 0">
-      <section-row [position]="'1)'" [arrivalStation]="order.totalEndStation" [arrivalTime]="order.totalArrivalTime"
+      <section-row [position]="'1)'" [operator]="order.operator" [arrivalStation]="order.totalEndStation" [arrivalTime]="order.totalArrivalTime"
                    [outboundStation]="order.totalStartStation" [outboundTime]="order.totalOutboundTime"></section-row>
     </ng-container>
 
     <ng-container *ngIf="order.interchanges.length > 0">
       <section-row *ngFor="let interchange of order.interchanges;let i=index;"
-                   [position]="preparePostion(i)"
+                   [position]="preparePostion(i)" [operator]="interchange.operator"
                    [arrivalStation]="interchange.endStation" [arrivalTime]="interchange.arrivalTime"
                    [outboundStation]="interchange.startStation" [outboundTime]="interchange.outboundTime"></section-row>
     </ng-container>
