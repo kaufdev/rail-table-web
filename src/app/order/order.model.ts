@@ -1,5 +1,10 @@
 import {OrderInterchange} from "./order-interchange.model";
 
+export enum TicketType{
+  SECOND_CLASS = 'Second Class',
+  FIRST_CLASS = 'First Class'
+}
+
 export class Order {
   sectionsIds: string[];
   totalStartStation: string;
@@ -8,7 +13,7 @@ export class Order {
   totalArrivalTime: Date
   operator: string;
   cost:number;
-  classType: string;
+  ticketType: TicketType;
   interchanges: OrderInterchange[] = [];
 
 
@@ -18,7 +23,15 @@ export class Order {
 
 
 
-  constructor(sectionsIds: string[], startStation: string, endStation: string, outboundTime: Date, arrivalTime: Date, operator: string,cost: number, classType: string, interchanges: OrderInterchange[]) {
+  constructor(sectionsIds: string[],
+              startStation: string,
+              endStation: string,
+              outboundTime: Date,
+              arrivalTime: Date,
+              operator: string,
+              cost: number,
+              classType: TicketType,
+              interchanges: OrderInterchange[]) {
     this.sectionsIds = sectionsIds;
     this.totalStartStation = startStation;
     this.totalEndStation = endStation;
@@ -26,7 +39,7 @@ export class Order {
     this.totalArrivalTime = arrivalTime;
     this.operator = operator;
     this.cost = cost;
-    this.classType = classType;
+    this.ticketType = classType;
     this.interchanges = interchanges;
   }
 

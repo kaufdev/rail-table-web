@@ -18,7 +18,7 @@ export class OrderTicketComponent {
   }
 
   public ordered(): void{
-    this.orderDataService.orderTicket(new OrderDto(this.order.sectionsIds,this.order.firstName,this.order.lastName,this.order.email, this.order.cost))
+    this.orderDataService.orderTicket(new OrderDto(this.order.sectionsIds,this.order.firstName,this.order.lastName,this.order.email, this.order.cost, this.order.ticketType))
       .subscribe((ticket: Ticket) => this.dialog.open(TicketComponent, {data: ticket}),
         (error) => console.log(error));
   }
