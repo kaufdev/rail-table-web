@@ -10,8 +10,8 @@
     <ng-container *ngIf="order.interchanges.length > 0">
       <section-row *ngFor="let interchange of order.interchanges;let i=index;"
                    [position]="preparePostion(i)" [operator]="interchange.operator"
-                   [arrivalStation]="interchange.endStation" [arrivalTime]="interchange.arrivalTime"
-                   [outboundStation]="interchange.startStation" [outboundTime]="interchange.outboundTime"></section-row>
+                   [arrivalStation]="interchange.arrivalStationName" [arrivalTime]="interchange.arrivalTime"
+                   [outboundStation]="interchange.outboundStationName" [outboundTime]="interchange.outboundTime"></section-row>
     </ng-container>
 
 

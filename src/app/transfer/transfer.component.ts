@@ -3,7 +3,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {OrderTicketComponent} from "../order/order-ticket.component";
 import {Order, TicketType} from "../order/order.model";
 import {InterchangeTransfer} from "../model/interchange-transfer.model";
-import {OrderInterchange} from "../order/order-interchange.model";
+import {TicketTransferModel} from "../ticket/ticket-transfer.model";
 
 @Component({
   selector: 'rtw-transfer',
@@ -53,7 +53,7 @@ export class TransferComponent{
 
   orderNormalTicket() {
     const orderInterchanges = this.interchangeTransfers.map(interchange =>
-      new OrderInterchange(interchange.startStation,
+      new TicketTransferModel(interchange.startStation,
         interchange.outboundTime,
         interchange.endStation,
         interchange.arrivalTime,
@@ -64,11 +64,12 @@ export class TransferComponent{
 
   orderFirstClassTicket() {
     const orderInterchanges = this.interchangeTransfers.map(interchange =>
-      new OrderInterchange(interchange.startStation,
+      new TicketTransferModel(interchange.startStation,
         interchange.outboundTime,
         interchange.endStation,
         interchange.arrivalTime,
-        interchange.operator));    const order = new Order(this.sectionsIds,this.startStation,this.endStation,this.outboundTime, this.arrivalTime,this.operator,this.secondClassPrice, TicketType.FIRST_CLASS, orderInterchanges);
+        interchange.operator));
+    const order = new Order(this.sectionsIds,this.startStation,this.endStation,this.outboundTime, this.arrivalTime,this.operator,this.secondClassPrice, TicketType.FIRST_CLASS, orderInterchanges);
     this.dialog.open(OrderTicketComponent,{data: order});
   }
 }

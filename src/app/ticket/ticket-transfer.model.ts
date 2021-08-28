@@ -1,9 +1,9 @@
-export class OrderInterchange {
-  readonly outboundStationName: string;
-  readonly arrivalStationName: string;
-  readonly outboundTime: Date;
-  readonly arrivalTime: Date;
-  readonly operator: string;
+export class TicketTransferModel {
+    readonly outboundStationName: string;
+    readonly arrivalStationName: string;
+    readonly outboundTime: Date;
+    readonly arrivalTime: Date;
+    readonly operator: string;
 
   constructor(startStation: string, outboundTime: Date, endStation: string, arrivalTime: Date, operator: string) {
     this.outboundStationName = startStation;

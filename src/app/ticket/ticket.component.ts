@@ -1,6 +1,6 @@
-import {Component, Inject, Input} from "@angular/core";
+import {Component, Inject} from "@angular/core";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
-import {Ticket} from "../order/ticket.model";
+import {Ticket} from "./ticket.model";
 
 
 @Component({
@@ -12,7 +12,6 @@ export class TicketComponent {
 
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: Ticket) {
-    console.log(data);
     this.ticket = data;
   }
 

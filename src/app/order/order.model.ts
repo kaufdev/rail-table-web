@@ -1,4 +1,4 @@
-import {OrderInterchange} from "./order-interchange.model";
+import {TicketTransferModel} from "../ticket/ticket-transfer.model";
 
 export enum TicketType{
   SECOND_CLASS = 'Second Class',
@@ -14,14 +14,12 @@ export class Order {
   operator: string;
   cost:number;
   ticketType: TicketType;
-  interchanges: OrderInterchange[] = [];
+  interchanges: TicketTransferModel[] = [];
 
 
   firstName:string = null;
   lastName:string = null;
   email:string = null;
-
-
 
   constructor(sectionsIds: string[],
               startStation: string,
@@ -31,7 +29,7 @@ export class Order {
               operator: string,
               cost: number,
               classType: TicketType,
-              interchanges: OrderInterchange[]) {
+              interchanges: TicketTransferModel[]) {
     this.sectionsIds = sectionsIds;
     this.totalStartStation = startStation;
     this.totalEndStation = endStation;

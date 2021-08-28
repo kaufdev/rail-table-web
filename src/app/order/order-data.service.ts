@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {environment} from "../../environments/environment";
 import {OrderDto} from "./order-dto.model";
 import {HttpClient} from "@angular/common/http";
-import {Ticket} from "./ticket.model";
+import {Ticket} from "../ticket/ticket.model";
 import {Observable} from "rxjs";
 
 @Injectable({

@@ -4,7 +4,7 @@ import {Order} from "./order.model";
 import {OrderDataService} from "./order-data.service";
 import {OrderDto} from "./order-dto.model";
 import {TicketComponent} from "../ticket/ticket.component";
-import {Ticket} from "./ticket.model";
+import {Ticket} from "../ticket/ticket.model";
 
 @Component({
     selector: 'order-ticket',

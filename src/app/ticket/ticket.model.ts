@@ -1,5 +1,5 @@
 import {TicketTransferModel} from "./ticket-transfer.model";
-import {TicketType} from "./order.model";
+import {TicketType} from "../order/order.model";
 
 export class Ticket{
   readonly price: string;
