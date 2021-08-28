@@ -1,25 +1,34 @@
+import {OrderInterchange} from "./order-interchange.model";
+
 export class Order {
   sectionsIds: string[];
-  startStation: string;
-  endStation: string
-  outboundTime: Date
-  arrivalTime: Date
+  totalStartStation: string;
+  totalEndStation: string
+  totalOutboundTime: Date
+  totalArrivalTime: Date
   operator: string;
   cost:number;
+  classType: string;
+  interchanges: OrderInterchange[] = [];
+
+
   firstName:string = null;
   lastName:string = null;
   email:string = null;
-  classType: string;
 
 
-  constructor(sectionsIds: string[], startStation: string, endStation: string, outboundTime: Date, arrivalTime: Date, operator: string,cost: number, classType: string) {
+
+  constructor(sectionsIds: string[], startStation: string, endStation: string, outboundTime: Date, arrivalTime: Date, operator: string,cost: number, classType: string, interchanges: OrderInterchange[]) {
     this.sectionsIds = sectionsIds;
-    this.startStation = startStation;
-    this.endStation = endStation;
-    this.outboundTime = outboundTime;
-    this.arrivalTime = arrivalTime;
+    this.totalStartStation = startStation;
+    this.totalEndStation = endStation;
+    this.totalOutboundTime = outboundTime;
+    this.totalArrivalTime = arrivalTime;
     this.operator = operator;
     this.cost = cost;
     this.classType = classType;
+    this.interchanges = interchanges;
   }
+
+
 }

@@ -1,0 +1,33 @@
+<div class="row" >
+  <div class="col-1" >
+    <h4 style="text-align: center; margin-top: 28px">{{position}}</h4>
+  </div>
+  <div class="col">
+    <div class="form-group">
+      <label for="outboundStation">Outbound Station</label>
+      <input type="text" class="form-control" id="outboundStation" [ngModel]="outboundStation" [disabled]="true">
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="form-group">
+      <label for="outboundTime">Outbound Time</label>
+      <input type="text" class="form-control" id="outboundTime"
+             [ngModel]="outboundTime | date: 'M/d/yy, HH:mm' " [disabled]="true">
+    </div>
+  </div>
+  <div class="col">
+    <div class="form-group">
+      <label for="arrivalStation">Arrival Station</label>
+      <input type="text" class="form-control" id="arrivalStation" [ngModel]="arrivalStation"
+             [disabled]="true">
+    </div>
+  </div>
+  <div class="col">
+    <div class="form-group">
+      <label for="arrivalTime">Arrival Time</label>
+      <input type="text" class="form-control" id="arrivalTime"
+             [ngModel]="arrivalTime | date: 'M/d/yy, HH:mm' " [disabled]="true">
+    </div>
+  </div>
+</div>

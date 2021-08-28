@@ -1,5 +1,5 @@
-import {Component, Inject, Input} from "@angular/core";
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {Component, Inject} from "@angular/core";
+import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
 import {Order} from "./order.model";
 import {OrderDataService} from "./order-data.service";
 import {OrderDto} from "./order-dto.model";
@@ -11,12 +11,21 @@ import {OrderDto} from "./order-dto.model";
 export class OrderTicketComponent {
   order: Order;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Order, private orderDataService: OrderDataService) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Order, private orderDataService: OrderDataService,public dialog: MatDialog) {
     this.order = data;
+    console.log(this.order)
   }
 
   public ordered(): void{
     this.orderDataService.orderTicket(new OrderDto(this.order.sectionsIds,this.order.firstName,this.order.lastName,this.order.email))
-      .subscribe(() => console.log("Success"));
+      .subscribe(() => {
+        // this.dialog.open(TicketComponent, {data: this.order})
+        },
+        (error) => console.log(error));
+  }
+
+  preparePostion(index: number) :string{
+    const num = index + 1;
+    return num + ')';
   }
 }

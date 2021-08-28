@@ -3,6 +3,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {OrderTicketComponent} from "../order/order-ticket.component";
 import {Order} from "../order/order.model";
 import {InterchangeTransfer} from "../model/interchange-transfer.model";
+import {OrderInterchange} from "../order/order-interchange.model";
 
 @Component({
   selector: 'rtw-transfer',
@@ -51,12 +52,14 @@ export class TransferComponent{
   constructor(public dialog: MatDialog) {}
 
   orderNormalTicket() {
-    const order = new Order(this.sectionsIds,this.startStation,this.endStation,this.outboundTime, this.arrivalTime,this.operator,this.secondClassPrice,"Second class");
+    const orderInterchanges = this.interchangeTransfers.map(interchange => new OrderInterchange(interchange.startStation,interchange.outboundTime,interchange.endStation,interchange.arrivalTime));
+    const order = new Order(this.sectionsIds,this.startStation,this.endStation,this.outboundTime, this.arrivalTime,this.operator,this.secondClassPrice,"Second class",orderInterchanges);
     this.dialog.open(OrderTicketComponent,{data: order});
   }
 
   orderFirstClassTicket() {
-    const order = new Order(this.sectionsIds,this.startStation,this.endStation,this.outboundTime, this.arrivalTime,this.operator,this.secondClassPrice, "First Class");
+    const orderInterchanges: OrderInterchange[] = this.interchangeTransfers.map(interchange => new OrderInterchange(interchange.startStation,interchange.outboundTime,interchange.endStation,interchange.arrivalTime));
+    const order = new Order(this.sectionsIds,this.startStation,this.endStation,this.outboundTime, this.arrivalTime,this.operator,this.secondClassPrice, "First Class",orderInterchanges);
     this.dialog.open(OrderTicketComponent,{data: order});
   }
 }
