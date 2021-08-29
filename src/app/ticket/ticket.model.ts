@@ -7,5 +7,6 @@ export class Ticket{
   readonly lastName: string;
   readonly email: string;
   readonly ticketType: TicketType;
+  readonly identifier: string;
   readonly transfers: TicketTransferModel[];
 }
