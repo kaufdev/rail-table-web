@@ -37,5 +37,5 @@
   <h2 style="float: right; margin-top: 23px">{{ticket.price | currency: 'PLN' }}</h2>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Return</button>
+  <button mat-button mat-dialog-close (click)="onReturn()">Return</button>
 </mat-dialog-actions>

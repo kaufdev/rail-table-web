@@ -13,7 +13,9 @@ import {Ticket} from "../ticket/ticket.model";
 export class OrderTicketComponent {
   order: Order;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Order, private orderDataService: OrderDataService,public dialog: MatDialog) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Order,
+              private orderDataService: OrderDataService,
+              public dialog: MatDialog) {
     this.order = data;
   }
 

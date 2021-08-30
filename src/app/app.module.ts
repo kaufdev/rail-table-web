@@ -11,8 +11,11 @@ import { TransferComponent } from './transfer/transfer.component';
 import { StationFormComponent } from './station-from-input/station-form-input.component';
 import { InterchangeTransferComponent } from './interchange-transfer/interchange-transfer.component';
 import {OrderTicketComponent} from "./order/order-ticket.component";
-import {SectionRow} from "./order/section-row.component";
+import {SectionRow} from "./section-row/section-row.component";
 import {TicketComponent} from "./ticket/ticket.component";
+import {SearchScreenComponent} from "./search-screen/search-screen.component";
+import {RoutingModule} from "./routing.module";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,14 +26,16 @@ import {TicketComponent} from "./ticket/ticket.component";
     InterchangeTransferComponent,
     OrderTicketComponent,
     TicketComponent,
-    SectionRow
+    SectionRow,
+    SearchScreenComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModuleModule,
-    FormsModule
+    FormsModule,
+    RoutingModule
   ],
   providers: [
   ],

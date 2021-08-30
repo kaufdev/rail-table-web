@@ -1,6 +1,7 @@
 import {Component, Inject} from "@angular/core";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {Ticket} from "./ticket.model";
+import {SharedService} from "../shared/shared.service";
 
 
 @Component({
@@ -11,7 +12,8 @@ export class TicketComponent {
   ticket: Ticket = new Ticket();
 
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Ticket) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Ticket,
+              private sharedService: SharedService) {
     this.ticket = data;
   }
 
@@ -19,4 +21,10 @@ export class TicketComponent {
     const num = index + 1;
     return num + ')';
   }
+
+  onReturn(): void{
+    this.sharedService.resetSearchScreen();
+  }
+
+
 }

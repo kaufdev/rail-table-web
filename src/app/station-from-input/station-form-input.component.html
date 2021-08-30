@@ -5,7 +5,7 @@
         type="text" class="form-control height-as-floating-control" placeholder="Station">
     </div>
     <ul *ngIf="isStationDropdownVisible && !disabled" class="list-group station-list">
-        <li class="list-group-item"  (click)="setStationFromAcronym(station)" 
+        <li class="list-group-item"  (click)="setStationFromAcronym(station)"
         *ngFor="let station of stations">{{station.name}}</li>
     </ul>
 </div>

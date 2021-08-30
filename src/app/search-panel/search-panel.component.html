@@ -2,14 +2,14 @@
     <form (ngSubmit)="searchTransfer()" #searchForm="ngForm" class="row">
         <div class="offset-2 col-4">
             <rtw-station-form-input name="stationFrom" required
-             [(ngModel)]="searchModelDto.stationFrom" [inputName]="'From'"></rtw-station-form-input>
+             [(ngModel)]="stationFrom" [inputName]="'From'"></rtw-station-form-input>
 
             <rtw-station-form-input name="stationTo" required
-            [(ngModel)]="searchModelDto.stationTo" [inputName]="'To'"></rtw-station-form-input>
-        </div> 
+            [(ngModel)]="stationTo" [inputName]="'To'"></rtw-station-form-input>
+        </div>
         <div class="col-3">
             <div class="form-floating mt-4">
-                <input required name="outboundDate" [ngModel]="searchModelDto.outboundDate" (ngModelChange)="formatOutboundDate($event)" type="date" 
+                <input required name="outboundDate" [ngModel]="outboundDate" (ngModelChange)="formatOutboundDate($event)" type="date"
                 class="form-control" id="outboundDate" placeholder="Outbound date">
                 <label for="outboundDate">Outbound date</label>
             </div>

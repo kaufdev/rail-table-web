@@ -1,64 +1,68 @@
-import { Component, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Station } from '../model/station-model';
-import { SearchPanelDataService } from '../search-panel/search-panel-data.service';
-import { SharedService } from '../shared/shared.service';
+import {Component, Input} from '@angular/core';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {Station} from '../model/station-model';
+import {SearchPanelDataService} from '../search-panel/search-panel-data.service';
 
 @Component({
-    selector: 'rtw-station-form-input',
-    templateUrl: 'station-form-input.component.html',
-    styleUrls: ['./station-form-input.component.scss'],
-    providers: [
-        {
-          provide: NG_VALUE_ACCESSOR,
-          useExisting: StationFormComponent,
-          multi: true,
-        },
-      ],
+  selector: 'rtw-station-form-input',
+  templateUrl: 'station-form-input.component.html',
+  styleUrls: ['./station-form-input.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: StationFormComponent,
+      multi: true,
+    },
+  ],
 })
-export class StationFormComponent implements ControlValueAccessor{
-    @Input() inputName: string;
+export class StationFormComponent implements ControlValueAccessor {
+  @Input() inputName: string;
 
-    stationAcronym = '';
-    stationName = '';
-    isStationDropdownVisible: boolean;
-    stations: Station[] = [];
-    disabled = false;
-    onChange = (stationAcronym: string) => {};
-    onTouch = () => {};
+  stationAcronym = '';
+  stationName = '';
+  isStationDropdownVisible: boolean;
+  stations: Station[] = [];
+  disabled = false;
+  onChange = (stationAcronym: string) => {
+  };
+  onTouch = () => {
+  };
 
-    constructor(private service: SearchPanelDataService){
+  constructor(private service: SearchPanelDataService) {
+  }
+
+  writeValue(value: string): void {
+    this.onChange(value);
+    this.stationAcronym = value;
+    if (value == '') {
+      this.stationName = value;
     }
+  }
 
-    writeValue(value: string): void {
-        this.onChange(value);
-        this.stationAcronym = value;
-    }
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
 
-    registerOnChange(fn: any): void {
-        this.onChange = fn;
-    }
+  registerOnTouched(fn: any): void {
+    this.onTouch = fn;
+  }
 
-    registerOnTouched(fn: any): void {
-        this.onTouch = fn;
-    }
+  setDisabledState?(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
 
-    setDisabledState?(isDisabled: boolean): void {
-        this.disabled = isDisabled;
-    }
+  setStationFromAcronym(station: Station): void {
+    this.stationName = station.name;
+    this.stationAcronym = station.acronym;
+    this.writeValue(this.stationAcronym);
+    this.onTouch();
+    this.isStationDropdownVisible = false;
+  }
 
-    setStationFromAcronym(station: Station): void {
-        this.stationName = station.name;
-        this.stationAcronym = station.acronym;
-        this.writeValue(this.stationAcronym);
-        this.onTouch();
-        this.isStationDropdownVisible = false;
-    }
-
-    searchFromStation(stationProposal: string): void {
-        this.isStationDropdownVisible = stationProposal.length > 0;
-        this.stationName = stationProposal;
-        this.service.searchStation(stationProposal)
-            .subscribe(stations => this.stations = stations);
-    }
+  searchFromStation(stationProposal: string): void {
+    this.isStationDropdownVisible = stationProposal.length > 0;
+    this.stationName = stationProposal;
+    this.service.searchStation(stationProposal)
+      .subscribe(stations => this.stations = stations);
+  }
 }
