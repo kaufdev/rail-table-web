@@ -1,6 +1,6 @@
 export class InterchangeTransfer{
-    startStation: string;
-    endStation: string;
+    startStationName: string;
+    endStationName: string;
     outboundTime: Date;
     arrivalTime: Date;
     operator: string;

@@ -18,11 +18,11 @@
 
 
     <div class="col-4">
-      <button [disabled]=true class="btn btn-outline-secondary w-25 h-100 me-1">
+      <button [disabled]=true class="btn btn-outline-secondary h-100 me-1">
         <p>Student</p>
         <p>{{secondClassPrice / 2}} zł</p>
       </button>
-      <button class="btn btn-warning w-25 h-100  me-1" (click)="orderNormalTicket()">
+      <button class="btn btn-warning h-100  me-1" (click)="orderNormalTicket()">
         <p>Normal</p>
         <p>{{secondClassPrice}} zł</p>
         <p>{{availableSeatsForSecondClass}}/{{allSeatsForSecondClass}}
@@ -30,7 +30,7 @@
         </p>
       </button>
 
-      <button class="btn btn-outline-secondary w-25 h-100  me-1" (click)="orderFirstClassTicket()">
+      <button class="btn btn-outline-secondary h-100  me-1" (click)="orderFirstClassTicket()">
         <p>1st Class</p>
         <p>{{firstClassPrice}}zł</p>
         <p>{{availableSeatsForFirstClass}}/{{allSeatsForFirstClass}}
@@ -41,8 +41,8 @@
 </div>
 <div *ngIf="isInterchangeVisible">
   <rtw-interchange-transfer *ngFor="let interchange of interchangeTransfers"
-                            [endStation]="interchange?.endStation?.name"
-                            [startStation]="interchange?.startStation?.name"
+                            [endStation]="interchange?.endStationName"
+                            [startStation]="interchange?.startStationName"
                             [outboundTime]="interchange.outboundTime" [arrivalTime]="interchange.arrivalTime"
                             [operator]="interchange.operator"
   ></rtw-interchange-transfer>

@@ -59,9 +59,9 @@ export class TransferComponent{
 
   orderNormalTicket() {
     const orderInterchanges = this.interchangeTransfers.map(interchange =>
-      new TicketTransferModel(interchange.startStation,
+      new TicketTransferModel(interchange.startStationName,
         interchange.outboundTime,
-        interchange.endStation,
+        interchange.endStationName,
         interchange.arrivalTime,
         interchange.operator));
     const order = new Order(this.sectionsIds,this.startStation,this.endStation,this.outboundTime, this.arrivalTime,this.operator,this.secondClassPrice,TicketType.SECOND_CLASS, orderInterchanges);
@@ -70,9 +70,9 @@ export class TransferComponent{
 
   orderFirstClassTicket() {
     const orderInterchanges = this.interchangeTransfers.map(interchange =>
-      new TicketTransferModel(interchange.startStation,
+      new TicketTransferModel(interchange.startStationName,
         interchange.outboundTime,
-        interchange.endStation,
+        interchange.endStationName,
         interchange.arrivalTime,
         interchange.operator));
     const order = new Order(this.sectionsIds,this.startStation,this.endStation,this.outboundTime, this.arrivalTime,this.operator,this.secondClassPrice, TicketType.FIRST_CLASS, orderInterchanges);
