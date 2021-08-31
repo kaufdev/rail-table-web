@@ -1,0 +1,37 @@
+<div style="background-color: gainsboro; height: 100vh" class="container-fluid">
+  <div class="col-4 offset-4">
+    <form #checkForm="ngForm">
+      <div class="col" style="padding-top:250px">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input #emailTemplate=ngModel required name="email" type="text"
+                 [class.is-invalid]="emailTemplate.invalid && (emailTemplate.dirty || emailTemplate.touched)"
+                 class="form-control" id="email" [(ngModel)]="email">
+          <div *ngIf="emailTemplate.invalid && (emailTemplate.dirty || emailTemplate.touched)"
+               class="invalid-feedback">
+            <div *ngIf="emailTemplate.errors?.required">
+              Email is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="uuid">Identifier</label>
+          <input #identifierTemplate=ngModel required name="uuid-input" type="text" class="form-control" id="uuid"
+                 [class.is-invalid]="identifierTemplate.invalid && (identifierTemplate.dirty || identifierTemplate.touched)"
+                 [(ngModel)]="identifier">
+          <div *ngIf="identifierTemplate.invalid && (identifierTemplate.dirty || identifierTemplate.touched)"
+               class="invalid-feedback">
+            <div *ngIf="identifierTemplate.errors?.required">
+              Identifier is required.
+            </div>
+          </div>
+        </div>
+      </div>
+      <button (click)="onCheck()" type="button" class="btn btn-success" style="float:right; margin-top:40px"
+              [disabled]="!checkForm.form.valid">Check
+      </button>
+    </form>
+  </div>
+
+</div>

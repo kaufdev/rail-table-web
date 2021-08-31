@@ -17,6 +17,7 @@ import {SearchScreenComponent} from "./search-screen/search-screen.component";
 import {RoutingModule} from "./routing.module";
 import {AlertListComponent} from "./alert/alert-list.component";
 import {AlertComponent} from "./alert/alert.component";
+import {CheckTicketComponent} from "./check-ticket/check-ticket.component";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {AlertComponent} from "./alert/alert.component";
     SectionRow,
     SearchScreenComponent,
     AlertListComponent,
-    AlertComponent
+    AlertComponent,
+    CheckTicketComponent
   ],
   imports: [
     BrowserModule,
