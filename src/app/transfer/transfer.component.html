@@ -23,13 +23,13 @@
             <button class="btn btn-warning w-25 h-100  me-1" (click)="orderNormalTicket()">
                 <p>Normal</p>
                 <p>{{secondClassPrice}} zł</p>
-                <p>{{takenSeats}}/{{allSeats}} s </p>
+                <p>{{availableSeats}}/{{allSeats}} s </p>
             </button>
 
             <button class="btn btn-outline-secondary w-25 h-100  me-1" (click)="orderFirstClassTicket()">
                 <p>1st Class</p>
                 <p>{{firstClassPrice}}zł</p>
-                <p>{{takenSeats}}/{{allSeats}} s </p>
+                <p>{{availableSeats}}/{{allSeats}} s </p>
             </button>
         </div>
     </div>

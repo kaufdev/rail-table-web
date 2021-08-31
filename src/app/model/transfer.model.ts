@@ -12,5 +12,5 @@ export class Transfer{
     interchangeTransfers: InterchangeTransfer[] = [];
     sectionsIds: string[] = [];
     allSeats: string;
-    takenSeats: string;
+    availableSeats: string;
 }

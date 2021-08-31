@@ -16,7 +16,7 @@ export class TransferComponent{
   allSeats: string;
 
   @Input()
-  takenSeats: string;
+  availableSeats: string;
 
   @Input()
   startStation: string;
