@@ -13,10 +13,10 @@ import {TicketTransferModel} from "../ticket/ticket-transfer.model";
 export class TransferComponent{
 
   @Input()
-  allSeats: string;
+  allSeatsForSecondClass: string;
 
   @Input()
-  availableSeats: string;
+  availableSeatsForFirstClass: string;
 
   @Input()
   startStation: string;
