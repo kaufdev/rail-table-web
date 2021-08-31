@@ -13,4 +13,6 @@ export class Transfer{
     sectionsIds: string[] = [];
     allSeatsForSecondClass: string;
     availableSeatsForSecondClass: string;
+    allSeatsForFirstClass: string;
+    availableSeatsForFirstClass: string;
 }
